@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="genre_create">
+    <h3>販売分類</h3></br>
+    <%= form_with model: @genre, url: admins_genres_path, local: true do |f| %>
+    <p>
+      販売分類：
+      <%= f.text_field :name %>
+      <%= f.submit "作成", class: "btn btn-success" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="genre_list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>名称</th>
+        </tr>
+      </thead>
+      <% @genres.each do |genre| %>      
+      <tbody>
+        <tr>
+          <td><%= genre.id %></td>
+          <td><%= genre.name %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
