@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :admins do
+    resources :genres, only: [:index, :create]
+    resources :items, only: [:index, :create, :edit, :update, :desroy]
+  end
   devise_for :admins
   devise_for :users
   namespace :users do
