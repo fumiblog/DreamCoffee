@@ -1,0 +1,20 @@
+ja:
+  enums:
+    order_detail:
+      making_status:
+        seisakufuka: 製作不可
+        seisakumachi: 製作待ち
+        seisakuchu: 製作中
+        seisakukanryou: 製作完了
+
+    order:
+      status:
+        nyukinmachi: 入金待ち
+        nyukinkakunin: 入金確認
+        seisakuchu: 製作待ち
+        hassouzumi: 発送済み
+      payment_method:
+        credit: クレジットカード
+        bank: 銀行振込
+        counter: 店頭払い
+
