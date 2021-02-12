@@ -7,8 +7,23 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-
+import "bootstrap"
+import "../stylesheets/application"
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+require("trix")
+require("@rails/actiontext")
+require('jquery')
+
+// require("@rails/ujs").start()
+// require("@rails/activestorage").start()
+// require("channels")
+// require.context('../images', true)
+// require("@rails/actiontext")
+
+// import "../stylesheets/reset"
+// import "../stylesheets/actiontext"
+// import "../stylesheetscustom/"
