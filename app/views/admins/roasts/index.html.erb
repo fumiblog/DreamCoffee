@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="roast_create">
+    <h3>煎り方</h3></br>
+    <%= form_with model: @roast, url: admins_roasts_path, local: true do |f| %>
+    <p>
+      煎り分類：
+      <%= f.text_field :name %>
+      <%= f.submit "作成", class: "btn btn-success" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="roasts_list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>名称</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @roasts.each do |roast| %>      
+      <tbody>
+        <tr>
+          <td><%= roast.name %></td>
+          <td><%= link_to "削除", admins_roast_path(roast), dependent: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

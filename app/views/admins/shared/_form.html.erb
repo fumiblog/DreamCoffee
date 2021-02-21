@@ -1,0 +1,20 @@
+<%= form_with model: @item, url: admins_items_path(@item), local: true do |f| %>
+  <p>
+    画像：
+    <%= attachment_image_tag @item, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %>
+    <%= f.attachment_field :image %>
+  </p>
+  <p>
+    商品名：<%= f.text_field :name, :size => "40" %>　
+    値　段：<%= f.number_field :price, :size => "15" %>
+  </p>
+  <p>商品名：<%= f.text_field :name, :size => "40" %>
+  <p>商品説明<%= f.text_field :intoroduction, :size => "70" %></p>
+  <p>
+    商品分類：<%= f.collection_select :genre_id, @genres, :id, :name %>　
+    Roast：<%= f.collection_select :roast_id, @roasts, :id, :name %>　
+    Taste：<%= f.collection_select :taste_id, @tastes, :id, :name %>
+    状態：<%= f.select :is_active, [["販売中", "true"], ["計画中", "false"]] %>　
+    <%= f.submit "登録", class: "btn btn-primary" %>
+  </p>
+<% end %>

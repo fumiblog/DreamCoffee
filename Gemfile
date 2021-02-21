@@ -57,6 +57,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #backend
 gem "refile", require: "refile/rails", github: 'refile/refile'
+gem "refile-mini_magick"
 gem 'mini_magick'
 gem 'kaminari'
 gem 'meta-tags'

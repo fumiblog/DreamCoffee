@@ -13,7 +13,7 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a href="<% root_path %>" class="navbar-brand">夢珈琲　</a>
+        <a href="<% root_path %>" class="navbar-brand">自家焙煎 夢珈琲　</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,80 +21,62 @@
           <ul class="navbar-nav">
             <li class="nav-item"><a href="<%= admins_genres_path %>" class="nav-link">分類一覧</a></li>
             <li class="nav-item"><a href="<%= admins_items_path %>" class="nav-link">商品一覧</a></li>
-            <li class="nav-item"><a href="<%= root_path %>" class="nav-link">　</a></li>
-            <li class="nav-item"><a href="<%= root_path %>" class="nav-link">　</a></li>
+            <li class="nav-item"><a href="<%= admins_roasts_path %>" class="nav-link">挽き方</a></li>
+            <li class="nav-item"><a href="<%= users_items_path %>" class="nav-link">商品閲覧</a></li>
+            <li class="nav-item"><a href="<%= admins_roasts_path %>" class="nav-link"></a></li>
+            <li class="nav-item"><a href="<%= users_items_path %>" class="nav-link"></a></li>
           </ul>
         </div>
       </nav>
 
     </header>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <%= image_tag 'coffee13.png', class: 'd-block w-100 h-100' %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'coffee15.png', class: 'd-block w-100 h-100' %>
-        </div>
-        <div class="carousel-item">
-          <%= image_tag 'gitar11.png', class: 'd-block w-100 h-100' %>
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-
     <%= yield %>
     <footer>
-      <div class="sub-wrapper">
-        <div class="container-fluid sub-container">
-          <div class="row sub">
-            <div class="col-md-8 col-xs-12 profile">
-              <h2 class="profile-title">About Me</h2>
-              <div class="col-md-5 col-sm-5 col-xs-5 profile-image">
-                <%= image_tag 'yumecoffee_master.png', class: "profile-image--item", width: '80%', height: '80%' %>
-              </div>
-              <div class="col-md-7 col-sm-7 col-xs-7 profile-info">
-                <p class="profile-info--name">kouich</p>
-                <div class="profile-info--link">
-                  <%= link_to "https://twitter.com/xringoxr", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
-                    <%#= fa_icon "twitter 2x" %>
-                  <% end %>
-                  <%= link_to "https://www.instagram.com/hirozak/", {class: "profile-info--sns icon-sns icon-instagram", target: "_blank"} do %>
-                    <%#= fa_icon "instagram 2x" %>
-                  <% end %>
-                  <%= link_to "https://github.com/hirozak", {class: "profile-info--sns icon-sns icon-github", target: "_blank"} do %>
-                    <%#= fa_icon "github 2x" %>
-                  <% end %>
+      <div class="container">
+        <div class="sub-wrapper">
+          <div class="container-fluid sub-container">
+            <div class="row sub">
+              <div class="col-md-8 col-xs-12 profile">
+                <h2 class="profile-title">About Me</h2>
+                <div class="col-md-5 col-sm-5 col-xs-5 profile-image">
+                  <%= image_tag 'yumecoffee_master.png', class: "profile-image--item", width: '80%', height: '80%' %>
                 </div>
-                <div class="profile-info--description">
-                  <p>coffee_maister＆musist</p>
-                  <p>音楽（ギター、ピアノ）、工作が好きです。</p>
-                  <%= link_to "詳しく見る", "../about", class: "btn btn-outline-default btn-round" %>
+                <div class="col-md-7 col-sm-7 col-xs-7 profile-info">
+                  <p class="profile-info--name">kouich</p>
+                  <div class="profile-info--link">
+                    <%= link_to "https://twitter.com/xringoxr", {class: "profile-info--sns icon-sns icon-twitter", target: "_blank"} do %>
+                      <%#= fa_icon "twitter 2x" %>
+                    <% end %>
+                    <%= link_to "https://www.instagram.com/hirozak/", {class: "profile-info--sns icon-sns icon-instagram", target: "_blank"} do %>
+                      <%#= fa_icon "instagram 2x" %>
+                    <% end %>
+                    <%= link_to "https://github.com/hirozak", {class: "profile-info--sns icon-sns icon-github", target: "_blank"} do %>
+                      <%#= fa_icon "github 2x" %>
+                    <% end %>
+                  </div>
+                  <div class="profile-info--description">
+                    <p>coffee_maister＆musist</p>
+                    <p>音楽（ギター、ピアノ）、工作が好きです。</p>
+                    <%= link_to "詳しく見る", "../about", class: "btn btn-outline-default btn-round" %>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-4 col-xs-12 this_blog">
-              <h2 class="this_blog-title">This Blog</h2>
-              <div class="this_blog-description">
-                <p>このブログはfumiblogがRuby on Railsで開発しました。</p>
-                <p>GitHubにて、ソースコードを公開しています。</p>
-                <div class="this_blog-description--link">
-                  <div class="blogCard blogCard--noimg">
-                    <div class="blogCardCont">
-                      <div class="blogCardTxt">
-                        <p class="blogCardTitle"><a href="https://github.com/hirozak/hirozak.space" target="_blank">kouichi/kouichi.space</a></p>
-                        <p>kouichi.space - my blog</p>
+              <div class="col-md-4 col-xs-12 this_blog">
+                <h2 class="this_blog-title">This Blog</h2>
+                <div class="this_blog-description">
+                  <p>このブログはfumiblogがRuby on Railsで開発しました。</p>
+                  <p>GitHubにて、ソースコードを公開しています。</p>
+                  <div class="this_blog-description--link">
+                    <div class="blogCard blogCard--noimg">
+                      <div class="blogCardCont">
+                        <div class="blogCardTxt">
+                          <p class="blogCardTitle"><a href="https://github.com/hirozak/hirozak.space" target="_blank">kouichi/kouichi.space</a></p>
+                          <p>kouichi.space - my blog</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="blogCardFooter">
-                      <a href="https://github.com/hirozak/hirozak.space"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="">github.com</a>
+                      <div class="blogCardFooter">
+                        <a href="https://github.com/hirozak/hirozak.space"><img src="https://github.githubassets.com/pinned-octocat.svg" alt="">github.com</a>
+                      </div>
                     </div>
                   </div>
                 </div>
