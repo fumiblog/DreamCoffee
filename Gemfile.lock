@@ -215,6 +215,9 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    refile-mini_magick (0.2.0)
+      mini_magick (~> 4.0)
+      refile (~> 0.5)
     regexp_parser (2.0.3)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -306,6 +309,7 @@ DEPENDENCIES
   rails (~> 6.1.1)
   rails-i18n
   refile!
+  refile-mini_magick
   sass-rails (>= 6)
   selenium-webdriver
   spring

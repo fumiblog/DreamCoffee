@@ -3,6 +3,8 @@ class Admins::ItemsController < ApplicationController
     @item = Item.new
     @items = Item.all
     @genres = Genre.all
+    @roasts = Roast.all
+    @tastes = Taste.all
   end
 
   def create
@@ -12,6 +14,13 @@ class Admins::ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @genres = Genre.all
+    @roasts = Roast.all
+    @tastes = Taste.all
+  end
+  
+  def update
     @item = Item.find(params[:id])
     @item.update(item_params)
     redirect_to admins_items_path
@@ -30,9 +39,11 @@ class Admins::ItemsController < ApplicationController
       :genre_id,
       :name,
       :image,
-      :introduction,
+      :intoroduction,
       :price,
-      :is_active
+      :is_active,
+      :roast_id,
+      :taste_id
     )
   end
 

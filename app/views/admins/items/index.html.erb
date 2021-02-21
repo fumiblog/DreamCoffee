@@ -1,16 +1,25 @@
 <div class="container">
   <h3>商品作成</h3>
-  <div class="item_create">
-    <%= form_with model: @item, url: admins_items_path, local: true do |f| %>
-    <p>
-      画像：
-      <%= attachment_image_tag @item, :image, format: 'jpg', fallback: "no_image.jpg", size: "300x300" %>
-      <%= f.attachment_field :image %>
-    </p>
-    <p>商品名：<%= f.text_field :name %></p>
-    <p>商品分類：<%= f.collection_select :genre_id, @genres, :name, :id %></p>
+    <%= form_with model: @item, url: admins_items_path(@item), local: true do |f| %>
+    <div class="item_cimage">
+      <p>画像：<%= attachment_image_tag @item, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></p>
+      <p><%= f.attachment_field :image %></p>
+    </div>
+    <div class="item_cbody">
+      <p>
+        商品名：<%= f.text_field :name, :size => "40" %>　
+        値　段：<%= f.number_field :price, :size => "15" %>
+      </p>
+      <p>商品説明<%= f.text_field :intoroduction, :size => "70" %></p>
+      <p>
+        商品分類：<%= f.collection_select :genre_id, @genres, :id, :name %>　
+        Roast：<%= f.collection_select :roast_id, @roasts, :id, :name %>　
+        Taste：<%= f.collection_select :taste_id, @tastes, :id, :name %>
+        状態：<%= f.select :is_active, [["販売中", "true"], ["計画中", "false"]] %>　
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </p>
+    </div>
     <% end %>
-  </div>
   <div class="item_list">
     <table class="table table-striped">
       <thead>
@@ -20,19 +29,21 @@
           <th>商品名</th>
           <th>商品説明</th>
           <th>売価</th>
+          <th>Roast</th>
+          <th>Taste</th>
           <th>状態</th>
-          <th></th>
-          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @items.each do |item| %>
         <tr>
           <td><%= item.id %></td>
-          <td><%= item.attachment_field :image %></td>
-          <td><%= item.name %></td>
-          <td><%= item.introduction %></td>
-          <td><%= item.price.to_s(:delimited) %>（税込<%= (item.price.to_s(:delimited) * 1.1 %>）</td>
+          <td><%= attachment_image_tag item, :image, format: 'jpg', fallback: "no_image.jpg", size: "20x20" %></td>
+          <td><%= link_to item.name, edit_admins_item_path(item) %></td>
+          <td><%= item.intoroduction %></td>
+          <td class="text-right"><%= item.price.to_s(:delimited) %></td>
+          <td><%= item.roast.name %></td>
+          <td><%= item.taste.name %></td>
           <td>
             <% if item.is_active %>
               販売中
@@ -40,11 +51,11 @@
               品切中
             <% end %>
           </td>
-          <td></td>
-          <td></td>
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+
