@@ -12,23 +12,7 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a href="<% root_path %>" class="navbar-brand">自家焙煎 夢珈琲　</a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div id="menu" class="collapse navbar-collapse">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a href="<%= admins_genres_path %>" class="nav-link">分類一覧</a></li>
-            <li class="nav-item"><a href="<%= admins_items_path %>" class="nav-link">商品一覧</a></li>
-            <li class="nav-item"><a href="<%= admins_roasts_path %>" class="nav-link">挽き方</a></li>
-            <li class="nav-item"><a href="<%= users_items_path %>" class="nav-link">商品閲覧</a></li>
-            <li class="nav-item"><a href="<%= admins_roasts_path %>" class="nav-link"></a></li>
-            <li class="nav-item"><a href="<%= users_items_path %>" class="nav-link"></a></li>
-          </ul>
-        </div>
-      </nav>
-
+      <%= render 'layouts/navber' %>
     </header>
     <%= yield %>
     <footer>

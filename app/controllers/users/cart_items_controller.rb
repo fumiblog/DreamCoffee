@@ -5,8 +5,9 @@ class Users::CartItemsController < ApplicationController
   end
 
   def create
-    byebug
+    # byebug
     @cart_item = CartItem.new(cart_item_params)
+    @cart_item.user_id = current_user.id
     @cart_item.save!
     redirect_to users_cart_items_path
   end
