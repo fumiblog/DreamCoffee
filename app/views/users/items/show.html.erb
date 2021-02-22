@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-lg-5">
+      <P></P>
+      <P>
+        <%= attachment_image_tag @item, :image, format: "png", fallback: "no_image.jpg", size: "400x300" %>
+      </P>
+    </div>
+    <div class="col-lg-6">
+      <%= form_with model: @cart_item, url: users_cart_items_path, local: true do |f| %>
+       <P></P></br>
+        <h4><%= f.hidden_field @item.name %></h4>
+        <P><%= @item.intoroduction %></P>
+        <h5><%= f.hidden_field @item.price.to_s(:delimited) %>円</h5>
+        <P>
+          <%= f.select :amount, (1..50), include_blank: '個数', class: "form-select" %>
+          <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+        </P>
+      <% end %>
+    </div>
+  </div>
+</div>
