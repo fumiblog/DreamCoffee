@@ -9,12 +9,13 @@
     <div class="col-lg-6">
       <%= form_with model: @cart_item, url: users_cart_items_path, local: true do |f| %>
        <P></P></br>
-        <h4><%= f.hidden_field @item.name %></h4>
+        <h4><%= @item.name %></h4>
         <P><%= @item.intoroduction %></P>
-        <h5><%= f.hidden_field @item.price.to_s(:delimited) %>円</h5>
+        <h5><%= @item.price.to_s(:delimited) %>円</h5>
         <P>
           <%= f.select :amount, (1..50), include_blank: '個数', class: "form-select" %>
           <%= f.submit "カートに入れる", class: "btn btn-primary" %>
+          <%= f.hidden_field :item_id => @item.id %>
         </P>
       <% end %>
     </div>
