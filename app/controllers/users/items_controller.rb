@@ -13,4 +13,10 @@ class Users::ItemsController < ApplicationController
     # byebug
   end
 
+  def show
+    # byebug
+    @cart_item = CartItem.new
+    @item = Item.find(params[:id])
+  end
+
 end

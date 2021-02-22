@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   namespace :users do
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :create,:edit, :update, :destroy]
   end
   devise_for :admins
   devise_for :users

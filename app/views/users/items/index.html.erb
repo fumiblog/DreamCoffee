@@ -10,7 +10,7 @@
   </div></br>
   <div class="row row-cols-1 row-cols-lg-4 g-4">
     <% @items.each do |item| %>
-      <%#= link_to %>
+      <%= link_to users_item_path(item.id) do %>
       <div class="card">
         <%= attachment_image_tag item, :image, format: "png", fallback: "no_image.jpg", class: "card-img-top" %>
         <div class="card-body">
@@ -21,7 +21,8 @@
           </div>
           <h5 class="card-footer text-right text-danger"><%= item.price.to_s(:delimited)  %>円</h5>
         </div>
-      </div> 
+      </div>
+      <% end %> 
     <% end %>   
   </div>
 </div>
