@@ -14,18 +14,19 @@
       <thead>
         <tr>
           <th>名称</th>
-          <th>名称</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
-      <% @roasts.each do |roast| %>      
       <tbody>
+      <% @roasts.each do |roast| %>      
         <tr>
           <td><%= roast.name %></td>
           <td><%= link_to "削除", admins_roast_path(roast), dependent: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+          <td></td>
         </tr>
-      </tbody>
       <% end %>
+      </tbody>
     </table>
   </div>
 </div>

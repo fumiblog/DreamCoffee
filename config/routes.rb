@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index, :create]
     resources :items, only: [:index, :create, :edit, :update, :desroy]
     resources :roasts, only: [:index, :create, :destroy]
+    resources :tastes, only: [:index, :create, :destroy]
   end
   namespace :users do
     resources :items, only: [:index, :show]
