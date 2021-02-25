@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admins do
     resources :genres, only: [:index, :create]
-    resources :items, only: [:index, :create, :edit, :update, :desroy]
+    resources :items, only: [:index, :create, :edit, :update, :destroy]
     resources :roasts, only: [:index, :create, :destroy]
     resources :tastes, only: [:index, :create, :destroy]
   end
