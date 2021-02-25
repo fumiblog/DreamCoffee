@@ -1,4 +1,19 @@
 <div class="container">
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>カート内合計金額</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="display-4"><%= @sum.to_s(:delimited) %>円<small class="text-muted">（内消費税：<%= (@sum * 10 / 110).to_s(:delimited) %>円）</small></td>
+        </tr>
+      </tbody>
+    </table>
+  <%= link_to "買物を続ける", users_items_path, class: "btn btn-primary" %>
+  <%= button_to "カートを空にする", destroy_all_users_cart_items_path, method: :delete, class: "btn btn-danger" %>
     <table class="table table-striped">
       <thead>
         <tr>

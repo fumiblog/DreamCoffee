@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   end
   namespace :users do
     resources :items, only: [:index, :show]
-    resources :cart_items, only: [:index, :create,:edit, :update, :destroy]
+    resources :cart_items, only: [:index, :create,:edit, :update, :destroy]do
+      collection do
+        delete 'destroy_all'
+      end
+    end
   end
   devise_for :admins, skip: :all
   devise_scope :admin do
