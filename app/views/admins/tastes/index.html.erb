@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="taste_create">
+    <h3>味わい</h3></br>
+    <%= form_with model: @taste, url: admins_tastes_path, local: true do |f| %>
+    <p>
+      味わい分類：
+      <%= f.text_field :name %>
+      <%= f.submit "作成", class: "btn btn-success" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="tastes_list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @tastes.each do |taste| %>      
+        <tr>
+          <td><%= taste.name %></td>
+          <td><%= link_to "削除", admins_taste_path(taste), dependent: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+          <td></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
