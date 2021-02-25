@@ -1,6 +1,10 @@
 class Users::CartItemsController < ApplicationController
   def index
     @cart_items = current_user.cart_items
+    @sum = 0
+    @cart_items.each do |cartitem|
+      @sum += cartitem.amount * cartitem.item.price
+    end
   end
 
   def create
