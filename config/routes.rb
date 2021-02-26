@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   namespace :users do
     resources :items, only: [:index, :show]
+    resources :users, only: [:show, :edit, :update]
     resources :cart_items, only: [:index, :create,:edit, :update, :destroy]do
       collection do
         delete 'destroy_all'

@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>マイページ</h2>
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <table class="table">
+          <%= link_to "編集する", edit_users_user_path(@user), class: "btn btn-primary" %>
+          <thead>
+            <tr>
+              <th>個人情報</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>氏　　名</td>
+              <td><%= @user.name %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= @user.postal_code %></td>
+            </tr>
+            <tr>
+              <td>住　　所</td>
+              <td><%= @user.address %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= @user.telephone %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= @user.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</div>

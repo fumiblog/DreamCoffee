@@ -1,0 +1,44 @@
+<div class="container">
+  <h2>マイページ</h2>
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <table class="table">
+          <%= form_with model:@user, url: users_user_path(@user), local: true do |f| %>
+          <%= f.submit "更新する", class: "btn btn-success" %>
+          <thead>
+            <tr>
+              <th>個人情報を更新します</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>氏　　名</td>
+              <td><%= f.text_field :name, :size => "30" %></td>
+            </tr>
+            <tr>
+              <td>郵便番号</td>
+              <td><%= f.text_field :postal_code, :size => "15" %></td>
+            </tr>
+            <tr>
+              <td>住　　所</td>
+              <td><%= f.text_field :address, :size => "60" %></td>
+            </tr>
+            <tr>
+              <td>電話番号</td>
+              <td><%= f.text_field :telephone, :size => "20" %></td>
+            </tr>
+            <tr>
+              <td>メールアドレス</td>
+              <td><%= f.email_field :email, :size => "30" %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="col-4">
+    </div>
+  </div>
+</div>
