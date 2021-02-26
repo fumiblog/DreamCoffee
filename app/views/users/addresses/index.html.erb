@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="address_create">
+    <h3>配送先</h3></br>
+    <%= form_with model: @address, url: users_addresses_path, local: true do |f| %>
+    <p>
+      氏名：
+      <%= f.text_field :name, :size => "15" %>　
+      郵便番号：
+      <%= f.text_field :postal_code, :size => "10" %>　
+      住所：
+      <%= f.text_field :address, :size => "40" %>　
+      TEL：　
+      <%= f.text_field :telephone, :size => "15" %>
+      <%= f.submit "作成", class: "btn btn-success" %>
+    </p>
+    <% end %>
+  </div>
+  <div class="roasts_list">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>氏名</th>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>TEL</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @addresses.each do |address| %>      
+        <tr>
+          <td><%= link_to address.name, edit_users_address_path(address) %></td>
+          <td><%= address.postal_code %></td>
+          <td><%= address.address %></td>
+          <td><%= address.telephone %></td>
+          <td><%= button_to "削除", users_address_path(address), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
