@@ -1,6 +1,7 @@
 class Users::OrdersController < ApplicationController
   def new
     @order = Order.new
+    @addresses = current_user.addresses
   end
 
   def create

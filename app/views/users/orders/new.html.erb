@@ -17,11 +17,32 @@
         </label>
       </div>
       <div class="col-sm-2">
-        送り先
+        配送先
       </div>
       <div class="col-sm-10">
-        <%= f.radio_button :%>
+        <label>
+          <%= f.radio_button :flag, 0 %>
+          ご自身のご住所：
+          <%= current_user.name %>様　〒：
+          <%= current_user.postal_code %>　住所：
+          <%= current_user.address %>　TEL：
+          <%= current_user.telephone %>
+        </label>
+        <label>
+          <%= f.radio_button :flag, 1 %>
+          登録した配送先：
+          <%= select_tag :address_id, options_from_collection_for_select(@addresses, :id, :full_address, 1) %>
+        </label>
+        <label>
+          <%= f.radio_button :flag, 2 %>
+          新しい登録先：
+          氏　　名：<%= f.text_field :name %>
+          郵便番号：<%= f.text_field :postal_code %>
+          住　　所：<%= f.text_field :address %>
+          電話番号：<%= f.text_field :telephon %>
+        </label>
       </div>
+      <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
     </div>
   <% end %>
 </div>
