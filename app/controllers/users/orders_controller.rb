@@ -14,11 +14,24 @@ class Users::OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @order.payment_method = params[:order][:payment_method]
+    @cart_items = current_user.cart_items
+    @sum = 0
+    @cart_items.each do |cartitem|
+      @sum += cartitem.amount * cartitem.item.price
+    end
+    if @sum < 3000
+      @order.shipping_cost = 800
+    elsif @sum < 5000
+      @order.shipping_cost = 400
+    else
+      @order.shipping_cost = 0
+    end
+    # byebug
     if params[:flag] == '0'
-      @order.name = current.user.name
-      @order.postal_code = current.user.postal_code
-      @order.address = current.user.address
-      @order.telephone = current.user.telephone
+      @order.name = current_user.name
+      @order.postal_code = current_user.postal_code
+      @order.address = current_user.address
+      @order.telephone = current_user.telephone
     elsif params[:flag] == '1'
       @address = Address.find(params[:address_id])
       @order.name = @address.name
