@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 order_basic">
+    <%= form_with model: @order, url: users_orders_path, local: true do |f| %>
+      table.table.
+      <p>
+        支払方法：
+        <%= @order.payment_method_i18n %>
+      </p>
+      <p>
+        お届け先：
+        <%= @order.name %>
+        <%= @order.postal_code %>
+        <%= @order.address %>
+        <%= @order.telephone %>
+      </p>
+      <% end %>
+    </div>
+  </div>
+</div>

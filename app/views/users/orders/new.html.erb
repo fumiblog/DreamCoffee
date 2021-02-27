@@ -7,13 +7,13 @@
       </div>
       <div class="col-sm-10 btn-group" data-toggle="buttons">
         <label class="btn btn-outline-secondary active" style="width:30%">
-          <%= f.radio_button :payment_method, 0, {checked: true} %>クレジット
+          <%= f.radio_button :payment_method, :credit, {checked: true} %>クレジット
         </label>
         <label style="width:30%" class="btn btn-outline-secondary">
-          <%= f.radio_button :payment_method, 1, {} %>現金振込
+          <%= f.radio_button :payment_method, :bank, {} %>現金振込
         </label>
         <label style="width:30%" class="btn btn-outline-secondary">
-          <%= f.radio_button :payment_method, 2, {} %>店頭支払い
+          <%= f.radio_button :payment_method, :counter, {} %>店頭支払い
         </label>
       </div>
       <div class="col-sm-2">
@@ -21,7 +21,7 @@
       </div>
       <div class="col-sm-10">
         <label>
-          <%= f.radio_button :flag, 0 %>
+          <%= radio_button_tag :flag, 0 %>
           ご自身のご住所：
           <%= current_user.name %>様　〒：
           <%= current_user.postal_code %>　住所：
@@ -29,17 +29,17 @@
           <%= current_user.telephone %>
         </label>
         <label>
-          <%= f.radio_button :flag, 1 %>
+          <%= radio_button_tag :flag, 1 %>
           登録した配送先：
           <%= select_tag :address_id, options_from_collection_for_select(@addresses, :id, :full_address, 1) %>
         </label>
         <label>
-          <%= f.radio_button :flag, 2 %>
+          <%= radio_button_tag :flag, 2 %>
           新しい登録先：
           氏　　名：<%= f.text_field :name %>
           郵便番号：<%= f.text_field :postal_code %>
           住　　所：<%= f.text_field :address %>
-          電話番号：<%= f.text_field :telephon %>
+          電話番号：<%= f.text_field :telephone %>
         </label>
       </div>
       <%= f.submit "確認画面に進む", class: "btn btn-primary" %>
