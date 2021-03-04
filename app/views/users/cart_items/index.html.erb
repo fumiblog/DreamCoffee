@@ -8,13 +8,42 @@
       </thead>
       <tbody>
         <tr>
-          <td class="display-4"><%= @sum.to_s(:delimited) %>円<small class="text-muted">（内消費税：<%= (@sum * 10 / 110).to_s(:delimited) %>円）</small></td>
+          <td class="display-4">
+            <% if @sum === 0 %>
+              <small class="text-muted">カート内は空です。</small>
+            <% else %>
+              <%= @sum.to_s(:delimited) %>円
+              <small class="text-muted">
+                （内消費税：<%= (@sum * 10 / 110).to_s(:delimited) %>円）
+              </small>
+            <% end %>
+          </td>
         </tr>
       </tbody>
     </table>
-  <%= link_to "買物を続ける", users_items_path, class: "btn btn-primary" %>
-  <%= button_to "カートを空にする", destroy_all_users_cart_items_path, method: :delete, class: "btn btn-danger" %>
-  <%= link_to "情報入力に進む", new_users_order_path, class: "btn btn-success" %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-secondary">
+            現在お支払総額：
+            <% if @sum === 0 %>
+              0円
+            <% elsif @sum < 3000 %>
+              <%= (@sum + 800).to_s(:delimited) %>円（後
+              <%= (3000 - @sum).to_s(:delimited) %>で送料半額）
+            <% elsif @sum < 5000 %>
+              <%= (@sum + 400).to_s(:delimited) %>円（後
+              <%= (5000 - @sum).to_s(:delimited) %>で送料無料）
+            <% else %>
+              <%= @sum.to_s(:delimited) %>円
+            <% end %>
+          </th>
+        </tr>
+      </thead>
+    </table>
+      <%= link_to "買物を続ける", users_items_path, class: "btn btn-primary" %>
+      <%= button_to "カートを空にする", destroy_all_users_cart_items_path, method: :delete, class: "btn btn-danger" %>
+      <%= link_to "情報入力に進む", new_users_order_path, class: "btn btn-success" %>
     <table class="table table-striped">
       <thead>
         <tr>

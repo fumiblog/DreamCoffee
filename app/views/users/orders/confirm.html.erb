@@ -20,7 +20,7 @@
             <td>
               【お届け先】
               <%= @order.name %><%= f.hidden_field :name, :value => @order.name %>
-              <%= @order.postal_code %><%= f.hidden_field :poatal_code, :value => @order.postal_code %>
+              <%= @order.postal_code %><%= f.hidden_field :postal_code, :value => @order.postal_code %>
               <%= @order.address %><%= f.hidden_field :address, :value => @order.address %>
               <%= @order.telephone %><%= f.hidden_field :telephone, :value => @order.telephone %>            
             </td>
@@ -64,6 +64,8 @@
           </table>
         </div>
       </div>
+      <%= f.submit "購入する", class: "btn btn-success" %>
+      <%= link_to "カートへ戻る", users_cart_items_path, class: "btn btn-warning" %>
       <% end %>
     </div>
   </div>
