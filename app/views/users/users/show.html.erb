@@ -4,8 +4,9 @@
     <div class="col-8">
       <div class="row">
         <table class="table">
-          <%= link_to "編集する", edit_users_user_path(@user), class: "btn btn-primary" %>
-          <%= link_to "配送先", users_addresses_path(current_user.id), class: "btn btn-warning" %>
+          <%= link_to "編集する", edit_users_user_path(@user), class: "btn btn-primary" %>　
+          <%= link_to "配送先", users_addresses_path(current_user.id), class: "btn btn-warning" %>　
+          <%= link_to "買上履歴", users_orders_path(current_user.id), class: "btn btn-success" %>　
           <thead>
             <tr>
               <th>個人情報</th>
