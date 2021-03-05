@@ -14,13 +14,15 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-          <tr>
-            <td><%= order.created_at.strftime('%Y-%m-%d') %></td>
-            <td><%= order.name %>様宛</td>
-            <td><%= order.telephone %></td>
-            <td class="text-right"><%= order.total_payment.to_s(:delimited) %></td>
-            <td class="text-right"><%= order.id %></td>
-          </tr>
+          <%= link_to users_orders_path(:order_id => order.id) do %>
+            <tr>
+              <td><%= order.created_at.strftime('%Y-%m-%d') %></td>
+              <td><%= link_to order.name, users_orders_path(:order_id => order.id) %>様宛</td>
+              <td><%= order.telephone %></td>
+              <td class="text-right"><%= order.total_payment.to_s(:delimited) %></td>
+              <td class="text-right"><%= order.id %></td>
+            </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
@@ -37,7 +39,7 @@
         <tbody>
           <% @order_details.each do |orderdetail| %>
           <tr>
-            <td><%= orderdetail.item.name %></td>
+            <td><%= link_to orderdetail.item.name, users_items_path(:item_id => orderdetail.item_id ) %></td>
             <td class="text-right"><%= orderdetail.amount %></td>
           </tr>
           <% end %>
