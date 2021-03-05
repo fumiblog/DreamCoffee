@@ -61,17 +61,16 @@ class Users::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order('created_at desc')
     @list_name = 0
     if params[:order_id] === nil
-      @quantity_sold = OrderDetail.group(:item_id).sum(:amount)
-      @order_details = OrderDetail.order('created_at desc').limit(10)
-      @list_name = "売筋商品上位10位"
+      @order_details = OrderDetail.group(:item_id).order('sum(amount) desc').limit(3)
+      @list_name = "売筋商品ベスト３"
     else
       @order_details = OrderDetail.where(order_id: params[:order_id])
       @list_name = "商品詳細"
     end
-    byebug
+    # byebug
   end
 
   private
